@@ -108,12 +108,13 @@ ARG DEV_APT_COMMAND="\
     && curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - > /dev/null \
     && echo 'deb https://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list"
 ARG ADDITIONAL_DEV_APT_COMMAND="echo"
+ARG ADDITIONAL_DEV_APT_ENV=""
 
 ENV DEV_APT_DEPS=${DEV_APT_DEPS} \
     ADDITIONAL_DEV_APT_DEPS=${ADDITIONAL_DEV_APT_DEPS} \
     DEV_APT_COMMAND=${DEV_APT_COMMAND} \
     ADDITIONAL_DEV_APT_COMMAND=${ADDITIONAL_DEV_APT_COMMAND} \
-    ADDITIONAL_DEV_APT_ENV=""
+    ADDITIONAL_DEV_APT_ENV=${ADDITIONAL_DEV_APT_ENV}
 
 # Note missing man directories on debian-buster
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
